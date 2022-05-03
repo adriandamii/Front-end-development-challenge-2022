@@ -40,16 +40,16 @@ export default function User(props) {
         setRepeatPassword(!repeatPassword);
     }
 
-    if (inputEmailBool === true && checkRepeatPasswordBool === true && checkChoosePasswordBool === true 
-        && checkedConsent === true && checkedNews === true) {
+    if ((inputEmailBool === true && checkRepeatPasswordBool === true) && (checkChoosePasswordBool === true 
+        && checkedConsent === true && checkedNews === true)) {
         props.setWelcomeToDistancify(true);
     } else {
         props.setWelcomeToDistancify(false);
     }
     
     useEffect(() => {
-        if (inputEmail.includes("@gmail.com") && inputEmail.length > 10 
-            || inputEmail.includes("@yahoo.com") && inputEmail.length > 10) {
+        if ((inputEmail.includes("@gmail.com") && inputEmail.length > 10) 
+            || (inputEmail.includes("@yahoo.com") && inputEmail.length > 10)) {
             setInputEmailBool(true);
         } else {
             setInputEmailBool(false);
@@ -66,7 +66,7 @@ export default function User(props) {
     }, [checkChoosePassword]);
 
     useEffect(() => {
-        if (checkRepeatPassword === checkChoosePassword && checkChoosePassword !== "") {
+        if ((checkRepeatPassword === checkChoosePassword) && (checkChoosePassword !== "")) {
             setCheckRepeatPasswordBool(true);
         } else {
             setCheckRepeatPasswordBool(false);
@@ -120,7 +120,7 @@ export default function User(props) {
                 <div>
                     <label className="checkBox"> 
                         <input  type="checkbox" onChange={handleChangeConsent} />
-                        I consent to the <a href="#">Privacy Policy</a> & <a href="#">Terms and Service</a>.
+                        I consent to the <span className="link">Privacy Policy</span> & <span className="link">Terms and Service</span>.
                     </label>
                 </div>
                 <div>
